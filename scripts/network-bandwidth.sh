@@ -70,7 +70,8 @@ main() {
     local download_icon=$(get_tmux_option "@network_download_icon" "↓")
     local upload_icon=$(get_tmux_option "@network_upload_icon" "↑")
     local separator=$(get_tmux_option "@network_separator_icon" "•")
-    $(set_tmux_option "@network-bandwidth-previous-value" "$download_icon $(format_speed $download_speed) $separator $upload_icon $(format_speed $upload_speed)")
+    # $(set_tmux_option "@network-bandwidth-previous-value" "$download_icon $(format_speed $download_speed) $separator $upload_icon $(format_speed $upload_speed)")
+    $(set_tmux_option "@network-bandwidth-previous-value" "$(format_speed $download_speed)$download_icon $(format_speed $upload_speed)$upload_icon")
   fi
 
   echo -n "$(get_tmux_option "@network-bandwidth-previous-value")"
